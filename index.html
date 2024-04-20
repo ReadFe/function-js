@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        var first = window.alert('game')
+        if(!first){
+
+            // ronde 1
+            let player1 = prompt('Player 1: masukkan angka')
+            let player2 = prompt('Player 2: masukkan angka')
+            
+            let poin1 = 0;
+            let poin2 = 0;
+            
+
+            let convert1 = Number(player1);
+            let convert2 = Number(player2);
+            
+
+            function ronde1() {
+                if(convert1 == 3) {
+                    poin1++
+                }
+                if(convert2 == 3) {
+                    poin2++
+                }
+
+                result()
+                if(confirm('Ronde 2?') == true) {
+                    ronde2()
+                }
+            }
+
+
+            // ronde 2
+            function ronde2() {
+                let player1 = prompt('Player 1: masukkan angka')
+                let convert1 = Number(player1);
+
+
+                let player2 = prompt('Player 2: masukkan angka')
+                let convert2 = Number(player2);
+                if(convert1 == 1) {
+                    poin1++
+                }
+                if(convert2 == 1) {
+                    poin2++
+                }
+
+                result()
+                if(confirm('Ronde 3?') == true) {
+                    ronde3()
+                }
+            }
+
+
+            // ronde 3
+            function ronde3() {
+                let player1 = prompt('Player 1: masukkan angka')
+                let convert1 = Number(player1);
+
+
+                let player2 = prompt('Player 2: masukkan angka')
+                let convert2 = Number(player2);
+                if(convert1 == 1) {
+                    poin1++
+                }
+                if(convert2 == 1) {
+                    poin2++
+                }
+
+                result()
+                if(confirm('Ronde 4?') == true) {
+                    ronde4()
+                }
+            }
+            // ronde 4
+            function ronde4() {
+                let player1 = prompt('Player 1: masukkan angka')
+                let convert1 = Number(player1);
+
+
+                let player2 = prompt('Player 2: masukkan angka')
+                let convert2 = Number(player2);
+                if(convert1 == 2) {
+                    poin1++
+                }
+                if(convert2 == 2) {
+                    poin2++
+                }
+
+                result()
+                if(confirm('Ronde 5?') == true) {
+                    ronde5()
+                }
+            }
+            // ronde 5
+            function ronde5() {
+                let player1 = prompt('Player 1: masukkan angka')
+                let convert1 = Number(player1);
+
+
+                let player2 = prompt('Player 2: masukkan angka')
+                let convert2 = Number(player2);
+                if(convert1 == 1) {
+                    poin1++
+                }
+                if(convert2 == 1) {
+                    poin2++
+                }
+
+                result()
+                winner()
+            }
+
+
+            // result
+            function result() {
+                alert(`Hasil Poin Player \n --------------------- \n Player 1 : ${poin1} \n Player 2 : ${poin2}`)
+                
+            }
+
+            function winner() {
+                if(poin1 < poin2 ) {
+                    alert('Player 2 Win...')
+                } else {
+                    alert('Player 1 Win...')
+                }
+            }
+
+            
+
+            ronde1()
+
+        }
+    </script>
+</body>
+</html>
