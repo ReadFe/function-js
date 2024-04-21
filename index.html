@@ -3,141 +3,498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Function</title>
+    <title>Tebak Angka</title>
 </head>
 <body>
     <script>
-        var first = window.alert('game')
-        if(!first){
+        const nilaiTerendah = 1;
+        const nilaiTertinggi = 3;
+        const jawaban = Math.floor(Math.random() * nilaiTertinggi) + nilaiTerendah;
 
-            // ronde 1
-            let player1 = prompt('Player 1: masukkan angka')
-            let player2 = prompt('Player 2: masukkan angka')
-            
-            let poin1 = 0;
-            let poin2 = 0;
-            
+        let jawabanPengguna1;
+        let jawabanPengguna2;
 
-            let convert1 = Number(player1);
-            let convert2 = Number(player2);
-            
+        let poin1 = 0; 
+        let poin2 = 0; 
 
-            function ronde1() {
-                if(convert1 == 3) {
-                    poin1++
+        function opening() {
+            alert('Selamat datang di Game Tebak Angka \n Selamat Bermain...')
+            ronde1()
+        }
+
+        opening()
+
+
+        // ------------------------------RONDE 1---------------------------------
+        function ronde1() {
+            // user 1
+            jawabanPengguna1 = window.prompt('Player 1 : Masukkan angka 1-3')
+            if(jawabanPengguna1 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
                 }
-                if(convert2 == 3) {
-                    poin2++
-                }
+            }
+            jawabanPengguna1 = Number(jawabanPengguna1)
+            console.log(jawabanPengguna1)
 
-                result()
-                if(confirm('Ronde 2?') == true) {
+            
+            if(isNaN(jawabanPengguna1)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna1 < nilaiTerendah || jawabanPengguna1 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // user 2
+            jawabanPengguna2 = window.prompt('Player 2 : Masukkan angka 1-3')
+            if(jawabanPengguna2 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna2 = Number(jawabanPengguna2)
+            console.log(jawabanPengguna2)
+
+            
+            if(isNaN(jawabanPengguna2)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 < nilaiTerendah || jawabanPengguna2 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 == jawabanPengguna1) {
+                alert('Angka tidak boleh sama')
+                if(confirm('Ulangi') == true) {
+                    ronde1()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // hasil
+            if(jawabanPengguna1 == jawaban) {
+                poin1++
+            }
+            if(jawabanPengguna2 == jawaban) {
+                poin2++
+            }
+
+            result()
+            if(confirm('Ronde 2?') == true) {
                     ronde2()
                 }
-            }
-
-
-            // ronde 2
-            function ronde2() {
-                let player1 = prompt('Player 1: masukkan angka')
-                let convert1 = Number(player1);
-
-
-                let player2 = prompt('Player 2: masukkan angka')
-                let convert2 = Number(player2);
-                if(convert1 == 1) {
-                    poin1++
-                }
-                if(convert2 == 1) {
-                    poin2++
-                }
-
-                result()
-                if(confirm('Ronde 3?') == true) {
-                    ronde3()
-                }
-            }
-
-
-            // ronde 3
-            function ronde3() {
-                let player1 = prompt('Player 1: masukkan angka')
-                let convert1 = Number(player1);
-
-
-                let player2 = prompt('Player 2: masukkan angka')
-                let convert2 = Number(player2);
-                if(convert1 == 1) {
-                    poin1++
-                }
-                if(convert2 == 1) {
-                    poin2++
-                }
-
-                result()
-                if(confirm('Ronde 4?') == true) {
-                    ronde4()
-                }
-            }
-            // ronde 4
-            function ronde4() {
-                let player1 = prompt('Player 1: masukkan angka')
-                let convert1 = Number(player1);
-
-
-                let player2 = prompt('Player 2: masukkan angka')
-                let convert2 = Number(player2);
-                if(convert1 == 2) {
-                    poin1++
-                }
-                if(convert2 == 2) {
-                    poin2++
-                }
-
-                result()
-                if(confirm('Ronde 5?') == true) {
-                    ronde5()
-                }
-            }
-            // ronde 5
-            function ronde5() {
-                let player1 = prompt('Player 1: masukkan angka')
-                let convert1 = Number(player1);
-
-
-                let player2 = prompt('Player 2: masukkan angka')
-                let convert2 = Number(player2);
-                if(convert1 == 1) {
-                    poin1++
-                }
-                if(convert2 == 1) {
-                    poin2++
-                }
-
-                result()
-                winner()
-            }
-
-
-            // result
-            function result() {
-                alert(`Hasil Poin Player \n --------------------- \n Player 1 : ${poin1} \n Player 2 : ${poin2}`)
-                
-            }
-
-            function winner() {
-                if(poin1 < poin2 ) {
-                    alert('Player 2 Win...')
-                } else {
-                    alert('Player 1 Win...')
-                }
-            }
-
-            
-
-            ronde1()
 
         }
+
+
+        // ------------------------------RONDE 2---------------------------------
+        function ronde2() {
+            // user 1
+            jawabanPengguna1 = window.prompt('Player 1 : Masukkan angka 1-3')
+            if(jawabanPengguna1 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna1 = Number(jawabanPengguna1)
+            console.log(jawabanPengguna1)
+
+            
+            if(isNaN(jawabanPengguna1)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna1 < nilaiTerendah || jawabanPengguna1 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // user 2
+            jawabanPengguna2 = window.prompt('Player 2 : Masukkan angka 1-3')
+            if(jawabanPengguna2 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna2 = Number(jawabanPengguna2)
+            console.log(jawabanPengguna2)
+
+            
+            if(isNaN(jawabanPengguna2)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 < nilaiTerendah || jawabanPengguna2 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 == jawabanPengguna1) {
+                alert('Angka tidak boleh sama')
+                if(confirm('Ulangi') == true) {
+                    ronde2()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // hasil
+            if(jawabanPengguna1 == jawaban) {
+                poin1++
+            }
+            if(jawabanPengguna2 == jawaban) {
+                poin2++
+            }
+
+            result()
+            if(confirm('Ronde 3?') == true) {
+                    ronde3()
+                }
+
+        }
+
+        // ------------------------------RONDE 3---------------------------------
+        function ronde3() {
+            // user 1
+            jawabanPengguna1 = window.prompt('Player 1 : Masukkan angka 1-3')
+            if(jawabanPengguna1 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna1 = Number(jawabanPengguna1)
+            console.log(jawabanPengguna1)
+
+            
+            if(isNaN(jawabanPengguna1)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna1 < nilaiTerendah || jawabanPengguna1 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // user 2
+            jawabanPengguna2 = window.prompt('Player 2 : Masukkan angka 1-3')
+            if(jawabanPengguna2 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna2 = Number(jawabanPengguna2)
+            console.log(jawabanPengguna2)
+
+            
+            if(isNaN(jawabanPengguna2)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 < nilaiTerendah || jawabanPengguna2 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 == jawabanPengguna1) {
+                alert('Angka tidak boleh sama')
+                if(confirm('Ulangi') == true) {
+                    ronde3()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // hasil
+            if(jawabanPengguna1 == jawaban) {
+                poin1++
+            }
+            if(jawabanPengguna2 == jawaban) {
+                poin2++
+            }
+
+            result()
+            if(confirm('Ronde 4?') == true) {
+                    ronde4()
+                }
+
+        }
+
+        // ------------------------------RONDE 4---------------------------------
+        function ronde4() {
+            // user 1
+            jawabanPengguna1 = window.prompt('Player 1 : Masukkan angka 1-3')
+            if(jawabanPengguna1 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna1 = Number(jawabanPengguna1)
+            console.log(jawabanPengguna1)
+
+            
+            if(isNaN(jawabanPengguna1)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna1 < nilaiTerendah || jawabanPengguna1 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // user 2
+            jawabanPengguna2 = window.prompt('Player 2 : Masukkan angka 1-3')
+            if(jawabanPengguna2 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna2 = Number(jawabanPengguna2)
+            console.log(jawabanPengguna2)
+
+            
+            if(isNaN(jawabanPengguna2)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 < nilaiTerendah || jawabanPengguna2 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 == jawabanPengguna1) {
+                alert('Angka tidak boleh sama')
+                if(confirm('Ulangi') == true) {
+                    ronde4()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // hasil
+            if(jawabanPengguna1 == jawaban) {
+                poin1++
+            }
+            if(jawabanPengguna2 == jawaban) {
+                poin2++
+            }
+
+            result()
+            if(confirm('Ronde 5?') == true) {
+                    ronde5()
+                }
+
+        }
+
+        // ------------------------------RONDE 5---------------------------------
+        function ronde5() {
+            // user 1
+            jawabanPengguna1 = window.prompt('Player 1 : Masukkan angka 1-3')
+            if(jawabanPengguna1 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna1 = Number(jawabanPengguna1)
+            console.log(jawabanPengguna1)
+
+            
+            if(isNaN(jawabanPengguna1)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna1 < nilaiTerendah || jawabanPengguna1 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // user 2
+            jawabanPengguna2 = window.prompt('Player 2 : Masukkan angka 1-3')
+            if(jawabanPengguna2 == "") {
+                alert('Jawaban tidak boleh kosong')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            }
+            jawabanPengguna2 = Number(jawabanPengguna2)
+            console.log(jawabanPengguna2)
+
+            
+            if(isNaN(jawabanPengguna2)) {
+                alert('Mohon masukkan angka 1-3')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 < nilaiTerendah || jawabanPengguna2 > nilaiTertinggi) {
+                alert('Masukkan angka 1-3 saja')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            } else if(jawabanPengguna2 == jawabanPengguna1) {
+                alert('Angka tidak boleh sama')
+                if(confirm('Ulangi') == true) {
+                    ronde5()
+                    return
+                } else {
+                    return
+                }
+            }
+
+            // hasil
+            if(jawabanPengguna1 == jawaban) {
+                poin1++
+            }
+            if(jawabanPengguna2 == jawaban) {
+                poin2++
+            }
+
+            result()
+            winner()
+
+        }
+
+
+
+        function result() {
+                alert(`Angka rahasianya adalah ${jawaban} \n --------------------- \n Player 1 : ${poin1} \n Player 2 : ${poin2}`)
+                
+            }
+        
+        function winner() {
+            if(poin1 < poin2 ) {
+                alert('Player 2 Win...')
+            } else {
+                alert('Player 1 Win...')
+            }
+        }
+
+        
     </script>
 </body>
 </html>
